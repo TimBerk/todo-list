@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Список дел</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<main class="container main-content clearfix">
+  <h1 class="visually-hidden">Список дел</h1>
+
+  <section class="section-left column">
+    <h3 class="section-header">Список дел:</h3>
+
+    <div class="tasks">
+      <p class="empty-list">Список пуст...</p>
+
+      <ul class="task-list"></ul>
+    </div>
+  </section>
+
+  <section class="section-right column">
+    <h3 class="section-header">Добавить новое дело</h3>
+
+    <form class="task-form" action="add-task" method="POST">
+      <label class="task-field">* Название:
+        <input class="task-name" type="text" name="taskName" placeholder="Купить лошадь" required>
+      </label>
+
+      <label class="task-field">* Описание:
+        <textarea class="task-desk" name="taskDesk" placeholder="По цене" required></textarea>
+      </label>
+
+      <button class="add-btn" id="addTask" type="submit">Добавить дело</button>
+    </form>
+  </section>
+</main>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/messages_ru.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

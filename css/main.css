@@ -1,0 +1,180 @@
+.main-content {
+  margin-top: 65px;
+}
+
+.column {
+  width: 470px;
+  max-width: 470px;
+}
+
+.section-left {
+  float: left;
+}
+
+.section-right {
+  float: right;
+}
+
+.section-header {
+  margin-top: 0;
+  margin-bottom: 25px;
+
+  letter-spacing: 0.02em;
+}
+
+/* Task List */
+.tasks {
+  padding-top: 30px;
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.task-item {
+  width: 100%;
+}
+.task-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.task-header {
+  max-height: 52px;
+  padding: 17px 20px 5px;
+
+  background-color: #ffffff;
+  border-bottom: 1px solid #91919f;
+}
+
+.task-header-name {
+  float: left;
+  margin-top: 0;
+  margin-right: 20px;
+  margin-bottom: 0;
+
+  font-weight: normal;
+}
+
+.task-delete {
+  display: block;
+  float: left;
+  width: 9px;
+  height: 9px;
+  margin-top: 10px;
+  padding: 20px;
+
+  background: transparent url("../img/clear-button.png") center no-repeat;
+  background-size: 9px 9px;
+  border: none;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.task-arrow {
+  display: block;
+  float: right;
+  margin-top: -7px;
+  margin-right: -13px;
+  padding: 20px;
+
+  background: transparent url("../img/arrow.png") center no-repeat;
+  background-size: 5px 6px;
+  border: none;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.task-show {
+  -webkit-transform: rotate(0deg);
+     -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+
+  transition: 1s;
+}
+
+.task-hide {
+  -webkit-transform: rotate(90deg);
+     -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+
+  transition: 1s;
+}
+
+.task-body {
+  min-height: 85px;
+  margin: 0;
+  padding: 6px 20px;
+
+  font-size: 14px;
+  color: #8993ad;
+  text-indent: -30%; /* Первая строка съезжает, обнуление не помогает*/
+
+  background-color: #ffffff;
+}
+
+.hide-body {
+  display: none;
+}
+
+/* Task Form */
+.task-form {
+  width: 100%;
+  padding: 50px 40px 55px;
+
+  background-color: #ffffff;
+}
+
+.task-field {
+  display: block;
+  margin-bottom: 28px;
+
+  font-size: 14px;
+  color: #8993ad;
+}
+
+.task-name,
+.task-desk {
+  width: 100%;
+  margin-top: 6px;
+
+  font-size: 16px;
+  color: #000000;
+
+  background-color: #f9f9f9;
+  border: 1px solid #ebebeb;
+}
+
+.task-name.error,
+.task-desk.error {
+  border-color: red;
+}
+
+
+.task-name {
+  padding: 14px 11px;
+}
+
+.task-desk {
+  min-height: 230px;
+  padding: 19px 11px;
+
+  resize: none;
+}
+
+.error {
+  color: red;
+}
+
+.add-btn {
+  padding: 18px 56px;
+
+  color: #ffffff;
+
+  background-color: #2174fd;
+  border: none;
+}
