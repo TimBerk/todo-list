@@ -14,19 +14,19 @@
   <h1 class="visually-hidden">Список дел</h1>
 
   <section class="section-left column">
-    <h3 class="section-header">Список дел:</h3>
+    <h2 class="section-header">Список дел:</h2>
 
-    <div class="tasks">
-      <p class="empty-list">Список пуст...</p>
+    <div class="tasks empty-list">
+      <p class="empty-list-text">Список пуст...</p>
 
       <ul class="task-list"></ul>
     </div>
   </section>
 
   <section class="section-right column">
-    <h3 class="section-header">Добавить новое дело</h3>
+    <h2 class="section-header">Добавить новое дело</h2>
 
-    <form class="task-form" action="add-task" method="POST">
+    <form class="task-form task-form-empty-list" action="add-task" method="POST">
       <label class="task-field">* Название:
         <input class="task-name" type="text" name="taskName" placeholder="Купить лошадь" required>
       </label>

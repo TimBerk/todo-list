@@ -1,16 +1,22 @@
 $(function () {
 
-  function isEmptyTaskList() {
+  function checkEmptyTaskList(){
     let containerTasks = $('.tasks');
-    let tasks = $('.task-item');
-    if (tasks.length > 0 && containerTasks.css('paddingTop') === '30px') {
-      $('.tasks').css({'paddingTop': '0px'});
-      $('.task-form').css({'paddingTop': '32px'});
-      $('.empty-list').remove();
+    let caseElForm = $('.task-form');
+    let taskEls = $('.task-item');
+
+    if (taskEls.length === 0 && !containerTasks.hasClass('empty-list')) {
+      containerTasks.prepend('<p class="empty-list-text">Список пуст...</p>');
+      containerTasks.addClass('empty-list');
+      caseElForm.addClass('task-form-empty-list');
+    } else {
+      $('.empty-list-text').remove();
+      containerTasks.removeClass('empty-list');
+      caseElForm.removeClass('task-form-empty-list');
     }
   }
 
-  function fillTask(name, desk) {
+  function buildTask(name, desk) {
     return `<li class="task-item">
               <article>
                 <header class="task-header clearfix">
@@ -31,11 +37,9 @@ $(function () {
     rules: {
       taskName: {
         required: true,
-        minlength: 5
       },
       taskDesk: {
         required: true,
-        minlength: 5,
       }
     },
     submitHandler: function(form, event) {
@@ -43,29 +47,28 @@ $(function () {
 
       let name = $('.task-name').val();
       let desk = $('.task-desk').val();
-      let newTask = fillTask(name, desk);
+      let newTaskEl = buildTask(name, desk);
 
-      $('.task-list').prepend(newTask);
+      checkEmptyTaskList();
+
+      $('.task-list').prepend(newTaskEl);
       $('.task-name').val('');
       $('.task-desk').val('');
-      isEmptyTaskList();
+
+      checkEmptyTaskList();
     }
   });
 
-  $(document).on('click', '.task-delete', function () {
-    $(this).parent().parent().remove();
-    let tasks = $('.task-item').length;
-    if (tasks === 0) {
-      $('.tasks').css({'paddingTop': '30px'});
-      $('.task-form').css({'paddingTop': '50px'});
-      $('.tasks').prepend('<p class="empty-list">Список пуст...</p>');
-    }
+  $(document).on('click', '.task-delete', function (event) {
+    let target = event.target;
+    target.closest('li').remove();
+    checkEmptyTaskList();
   });
 
-  $(document).on('click', '.task-arrow', function () {
-    let task = $(this).parent().parent();
-    let taskBody = $(task).find('.task-body');
-    let taskArrow = $(task).find('.task-arrow');
+  $(document).on('click', '.task-arrow', function (event) {
+    let target = event.target.closest('li');
+    let taskBody = $(target).find('.task-body');
+    let taskArrow = $(target).find('.task-arrow');
 
     taskArrow.toggleClass('task-hide task-show');
     taskBody.toggleClass('hide-body');

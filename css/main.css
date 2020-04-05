@@ -1,5 +1,5 @@
 .main-content {
-  margin-top: 65px;
+  margin-top: 62px;
 }
 
 .column {
@@ -19,11 +19,17 @@
   margin-top: 0;
   margin-bottom: 25px;
 
+  font-weight: normal;
+  font-size: 20px;
   letter-spacing: 0.02em;
 }
 
 /* Task List */
 .tasks {
+  padding-top: 0;
+}
+
+.empty-list {
   padding-top: 30px;
 }
 
@@ -112,7 +118,6 @@
 
   font-size: 14px;
   color: #8993ad;
-  text-indent: -30%; /* Первая строка съезжает, обнуление не помогает*/
 
   background-color: #ffffff;
 }
@@ -124,9 +129,13 @@
 /* Task Form */
 .task-form {
   width: 100%;
-  padding: 50px 40px 55px;
+  padding: 32px 40px 55px;
 
   background-color: #ffffff;
+}
+
+.task-form-empty-list {
+  padding-top: 50px;
 }
 
 .task-field {
