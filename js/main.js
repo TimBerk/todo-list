@@ -1,8 +1,9 @@
 $(function () {
 
+  let containerTasks = $('.tasks');
+  let caseElForm = $('.task-form');
+
   function checkEmptyTaskList(){
-    let containerTasks = $('.tasks');
-    let caseElForm = $('.task-form');
     let taskEls = $('.task-item');
 
     if (taskEls.length === 0 && !containerTasks.hasClass('empty-list')) {
@@ -17,6 +18,8 @@ $(function () {
   }
 
   function buildTask(name, desk) {
+    checkEmptyTaskList();
+
     return `<li class="task-item">
               <article>
                 <header class="task-header clearfix">
@@ -32,31 +35,18 @@ $(function () {
             </li>`;
   }
 
-  $(".task-form").validate({
-    errorElement: 'span',
-    rules: {
-      taskName: {
-        required: true,
-      },
-      taskDesk: {
-        required: true,
-      }
-    },
-    submitHandler: function(form, event) {
-      event.preventDefault();
+  $(".task-form").submit(function(event){
+    event.preventDefault();
 
-      let name = $('.task-name').val();
-      let desk = $('.task-desk').val();
-      let newTaskEl = buildTask(name, desk);
+    let name = $('.task-name').val();
+    let desk = $('.task-desk').val();
+    let newTaskEl = buildTask(name, desk);
 
-      checkEmptyTaskList();
+    $('.task-list').prepend(newTaskEl);
+    $('.task-name').val('');
+    $('.task-desk').val('');
 
-      $('.task-list').prepend(newTaskEl);
-      $('.task-name').val('');
-      $('.task-desk').val('');
-
-      checkEmptyTaskList();
-    }
+    checkEmptyTaskList();
   });
 
   $(document).on('click', '.task-delete', function (event) {
