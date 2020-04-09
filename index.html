@@ -16,17 +16,17 @@
   <section class="section-left column">
     <h2 class="section-header">Список дел:</h2>
 
-    <div class="tasks empty-list">
+    <div class="tasks empty-list js-tasks">
       <p class="empty-list-text">Список пуст...</p>
 
-      <ul class="task-list"></ul>
+      <ul class="task-list js-tasksList"></ul>
     </div>
   </section>
 
   <section class="section-right column">
     <h2 class="section-header">Добавить новое дело</h2>
 
-    <form class="task-form task-form-empty-list" action="add-task" method="POST">
+    <form class="task-form task-form-empty-list js-taskForm" action="add-task" method="POST">
       <label class="task-field">* Название:
         <input class="task-name" type="text" name="taskName" placeholder="Купить лошадь" required>
       </label>
